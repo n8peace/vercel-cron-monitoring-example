@@ -1,7 +1,7 @@
 import { withCheckin } from "spooky-checkin";
 
 // The real work. It only runs for callers that passed the secret check below.
-const run = withCheckin(async () => {
+const run = withCheckin(async (_req: Request) => {
   // Your real work goes here.
   const processed = 12;
   return Response.json({ done: true, processed });
