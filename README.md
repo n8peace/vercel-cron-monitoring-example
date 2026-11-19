@@ -36,7 +36,7 @@ The first call answers 401. The second answers `{"done":true,"processed":12}`. L
 ## Deploy it and watch it
 
 1. Deploy to Vercel. In the project's Environment Variables add `CRON_SECRET` (any long random string). Vercel then sends it with each cron call.
-2. Make a check-in link for the job at [Spooky Particles](https://spookyparticles.com/automate-fixes?ct=example-vercel-cron-monitoring) and tell it how often the job runs.
+2. Make a check-in link for the job at [Spooky Particles](https://spookyparticles.com/automate-fixes?ct=example-vercel-cron-monitoring-example) and tell it how often the job runs.
 3. Add the link as `SPOOKY_PING_URL` in the same Environment Variables page, for Production. Treat it like a password: anyone who has it can say your job ran. Keep it out of code and logs.
 4. Redeploy. After the first scheduled run the job shows as up.
 
