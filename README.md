@@ -9,7 +9,7 @@ A Vercel cron job that stops running gives no error. Nothing calls your route, s
 | File | What it does |
 |---|---|
 | `vercel.json` | Runs `/api/cron/nightly` every day at 07:00 UTC. |
-| `app/api/cron/nightly/route.ts` | The cron route. Refuses callers without `CRON_SECRET`, wrapped in `withCheckin`. |
+| `app/api/cron/nightly/route.ts` | The cron route. Refuses callers without `CRON_SECRET` first, then runs the work wrapped in `withCheckin`. |
 | `package.json` | Next.js plus [`spooky-checkin`](https://www.npmjs.com/package/spooky-checkin), one file with no dependencies. |
 
 ## Quick start
@@ -31,7 +31,7 @@ curl -i localhost:3000/api/cron/nightly
 curl -i -H "Authorization: Bearer test-secret" localhost:3000/api/cron/nightly
 ```
 
-The first call answers 401. The second answers `{"done":true,"processed":12}`. Locally nothing is sent anywhere, because no check-in link is set and only calls from Vercel's scheduler count as runs.
+The first call answers 401. The second answers `{"done":true,"processed":12}`. Locally nothing is sent anywhere, because no check-in link is set.
 
 ## Deploy it and watch it
 
